@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    color: #fafafa;
+    height: 100vh;
+}
+
+.title {
+    font-size: 40px;
+    font-family: monospace;
+    margin: 10px;
+}
+
+.box {
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #0010f14b,
+    0px -5px 15px #b9030369;
+    width: 600px;
+    padding: 15px;
+    background-color: transparent;
+}
+.controlBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.controlBox .password {
+    background-color: #fefefe;
+    width: 90%;
+    height: 30px;
+    border: none;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.controlBox :is(input,button,h3) {
+    margin: 5px 0;
+    height: 40px;
+    width: 90%;
+}
+
+.controlBox input {
+    text-align: center;
+}
+
+.controlBox button {
+    background-color: rgb(39, 36, 36);
+    color: #fafafa;
+    border: none;
+    height: 50px;
+    font-size: 20px;
+    font-family: monospace;
+    /* border: 2px solid ; */
+    box-shadow: 4px 2px 5px rgba(20, 4, 235, 0.671),
+    -4px -2px 5px rgba(206, 14, 14, 0.671);
+}
