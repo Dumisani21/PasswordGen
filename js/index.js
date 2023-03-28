@@ -28,7 +28,7 @@ function genPass(len){
 function pushPassword(e){
     e.preventDefault()
     let requestPass = genPass(len)
-    console.log(passText);
+    console.log(passText.value);
     console.log(requestPass);
     passText.value = requestPass
 
