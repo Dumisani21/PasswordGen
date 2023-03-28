@@ -1,7 +1,7 @@
 // DOM content
 const genBtn = document.getElementById('btnGen')
 const genClear = document.getElementById('btnClear')
-const len = document.getElementById('lenght').value
+const len = document.getElementById('lenght')
 const passText = document.getElementById('password')
 
 // functions
@@ -27,7 +27,7 @@ function genPass(len){
 
 function pushPassword(e){
     e.preventDefault()
-    let requestPass = genPass(len)
+    let requestPass = genPass(len.value)
     console.log(passText.value);
     console.log(requestPass);
     passText.value = requestPass
