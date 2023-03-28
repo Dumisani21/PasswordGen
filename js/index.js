@@ -1,6 +1,8 @@
 // DOM content
 const genBtn = document.getElementById('btnGen')
 const genClear = document.getElementById('btnClear')
+const len = document.getElementById('lenght').value
+const passText = document.getElementById('password')
 
 // functions
 
@@ -25,8 +27,6 @@ function genPass(len){
 
 function pushPassword(e){
     e.preventDefault()
-    const len = document.getElementById('lenght').value
-    const passText = document.getElementById('password')
     let requestPass = genPass(len)
     console.log(passText);
     console.log(requestPass);
@@ -34,13 +34,13 @@ function pushPassword(e){
 
 }
 
-function clearPassword(e){
+function clearInputs(e){
     e.preventDefault()
-    const passText = document.getElementById('password')
     passText.value = ''
+    len.value = ''
 }
 
 
 // Event functions
 genBtn.addEventListener('click', pushPassword)
-genClear.addEventListener('click', clearPassword)
+genClear.addEventListener('click', clearInputs)
