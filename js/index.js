@@ -1,46 +1,48 @@
-// DOM content
-const genBtn = document.getElementById('btnGen')
-const genClear = document.getElementById('btnClear')
-const len = document.getElementById('lenght')
-const passText = document.getElementById('password')
+const passwordBox = document.getElementById("password"),
+pswGen = document.getElementById("pswGen"),
+message = document.getElementById("message"),
+messageText = document.getElementById("messageText"),
+pswlenght = document.getElementById("pswlenght"),
+copyContent = document.getElementById("copyContent"),
+textCopy = document.getElementById("textCopy")
 
-// functions
 
-function genPass(len){
-    let allChars = []
-    for(let i = 33; i<123; i++){
-        allChars.push(String.fromCharCode(i))
-    }
-    
-    let password_chars = ''
-    for(let i = 0; i < len;i++){
+function randomPassword(lenght) {
 
-        let randomIndex = Math.floor(Math.random() * (allChars.length - 1))
-        let randomChar = allChars[randomIndex]
+    const char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let psw = ''
 
-        password_chars += randomChar
+    for(let i = 0;i < lenght; i++){
+        let r = Math.floor(char.length * Math.random())
+        psw = psw + char[r]
     }
 
-    return password_chars
-}
-
-
-function pushPassword(e){
-    e.preventDefault()
-    let requestPass = genPass(len.value)
-    console.log(passText.value);
-    console.log(requestPass);
-    passText.value = requestPass
+    return psw
 
 }
 
-function clearInputs(e){
-    e.preventDefault()
-    passText.value = ''
-    len.value = ''
+function reportMsg(msgCode,msg){
+    message.classList.add(msgCode)
+    messageText.textContent = msg
+}
+
+function copyPsw(){
+    textCopy.textContent = passwordBox.textContent
+    textCopy.select()
+    document.execCommand('copy')
+    reportMsg("success","password copied")
+}
+
+function makePassword(){
+    if(pswlenght.value === ""){
+        reportMsg("error","Please fill in the input")
+    }else{
+        const newpsw = randomPassword(pswlenght.value)
+        reportMsg("success","Password is generated!")
+        passwordBox.textContent = newpsw
+    }
 }
 
 
-// Event functions
-genBtn.addEventListener('click', pushPassword)
-genClear.addEventListener('click', clearInputs)
+pswGen.addEventListener("click", makePassword)
+copyContent.addEventListener("click", copyPsw)
